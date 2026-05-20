@@ -36,6 +36,16 @@ export class EvolutionApi implements ICredentialType {
 			placeholder: 'MyInstance',
 			description: 'Nome da sua instância Evolution API',
 		},
+		{
+			displayName: 'Instance Token',
+			name: 'instanceToken',
+			type: 'string',
+			default: '',
+			typeOptions: {
+				password: true,
+			},
+			description: 'Token da instância (se necessário para autenticação)',
+		},
 	];
 
 	authenticate: IAuthenticateGeneric = {

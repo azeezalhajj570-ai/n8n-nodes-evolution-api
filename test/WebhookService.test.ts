@@ -38,6 +38,20 @@ describe('WebhookService', () => {
 			});
 		});
 
+		it('should send instance token header when provided', async () => {
+			mockedAxios.mockResolvedValue({ data: { success: true } } as any);
+
+			await WebhookService.registerWebhook(baseUrl, apiKey, instanceName, webhookUrl, events, 'my-instance-token');
+
+			expect(mockedAxios).toHaveBeenCalledWith(
+				expect.objectContaining({
+					headers: expect.objectContaining({
+						token: 'my-instance-token',
+					}),
+				}),
+			);
+		});
+
 		it('should propagate axios errors', async () => {
 			mockedAxios.mockRejectedValue(new Error('Network error'));
 
@@ -68,6 +82,7 @@ describe('WebhookService', () => {
 				method: 'GET',
 				headers: {
 					apikey: apiKey,
+					'Content-Type': 'application/json',
 				},
 			});
 			expect(result).toEqual(mockResponse.data);
@@ -93,6 +108,7 @@ describe('WebhookService', () => {
 				method: 'DELETE',
 				headers: {
 					apikey: apiKey,
+					'Content-Type': 'application/json',
 				},
 			});
 		});

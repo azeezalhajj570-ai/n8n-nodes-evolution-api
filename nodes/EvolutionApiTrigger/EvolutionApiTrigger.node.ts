@@ -174,12 +174,13 @@ export class EvolutionApiTrigger implements INodeType {
 				const baseUrl = credentials['server-url'] as string;
 				const apiKey = credentials.apikey as string;
 				const instanceName = credentials.instanceName as string;
+				const instanceToken = credentials.instanceToken as string | undefined;
 
 				if (!baseUrl || !apiKey || !instanceName) {
 					return false;
 				}
 
-				const existing = await WebhookService.findWebhook(baseUrl, apiKey, instanceName);
+				const existing = await WebhookService.findWebhook(baseUrl, apiKey, instanceName, instanceToken);
 				return existing !== null && existing.enabled === true;
 			},
 
@@ -188,6 +189,7 @@ export class EvolutionApiTrigger implements INodeType {
 				const baseUrl = credentials['server-url'] as string;
 				const apiKey = credentials.apikey as string;
 				const instanceName = credentials.instanceName as string;
+				const instanceToken = credentials.instanceToken as string | undefined;
 				const event = this.getNodeParameter('event', '') as string;
 				const additionalEvents = this.getNodeParameter('additionalEvents', []) as string[];
 
@@ -199,7 +201,7 @@ export class EvolutionApiTrigger implements INodeType {
 
 				const events = [event, ...additionalEvents].filter(Boolean);
 
-				await WebhookService.registerWebhook(baseUrl, apiKey, instanceName, webhookUrl, events);
+				await WebhookService.registerWebhook(baseUrl, apiKey, instanceName, webhookUrl, events, instanceToken);
 				return true;
 			},
 
@@ -208,12 +210,13 @@ export class EvolutionApiTrigger implements INodeType {
 				const baseUrl = credentials['server-url'] as string;
 				const apiKey = credentials.apikey as string;
 				const instanceName = credentials.instanceName as string;
+				const instanceToken = credentials.instanceToken as string | undefined;
 
 				if (!baseUrl || !apiKey || !instanceName) {
 					return false;
 				}
 
-				await WebhookService.removeWebhook(baseUrl, apiKey, instanceName);
+				await WebhookService.removeWebhook(baseUrl, apiKey, instanceName, instanceToken);
 				return true;
 			},
 		},

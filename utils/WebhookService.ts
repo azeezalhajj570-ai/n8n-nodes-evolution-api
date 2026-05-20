@@ -12,6 +12,17 @@ function normalizeBaseUrl(url: string): string {
 	return url.replace(/\/+$/, '');
 }
 
+function buildHeaders(apiKey: string, instanceToken?: string): Record<string, string> {
+	const headers: Record<string, string> = {
+		apikey: apiKey,
+		'Content-Type': 'application/json',
+	};
+	if (instanceToken) {
+		headers.token = instanceToken;
+	}
+	return headers;
+}
+
 export class WebhookService {
 	static async registerWebhook(
 		baseUrl: string,
@@ -19,15 +30,13 @@ export class WebhookService {
 		instanceName: string,
 		webhookUrl: string,
 		events: string[],
+		instanceToken?: string,
 	): Promise<void> {
 		const config: AxiosRequestConfig = {
 			baseURL: normalizeBaseUrl(baseUrl),
 			url: `/webhook/set/${instanceName}`,
 			method: 'POST',
-			headers: {
-				apikey: apiKey,
-				'Content-Type': 'application/json',
-			},
+			headers: buildHeaders(apiKey, instanceToken),
 			data: {
 				url: webhookUrl,
 				webhook_by_events: false,
@@ -43,15 +52,14 @@ export class WebhookService {
 		baseUrl: string,
 		apiKey: string,
 		instanceName: string,
+		instanceToken?: string,
 	): Promise<WebhookRegistration | null> {
 		try {
 			const config: AxiosRequestConfig = {
 				baseURL: normalizeBaseUrl(baseUrl),
 				url: `/webhook/find/${instanceName}`,
 				method: 'GET',
-				headers: {
-					apikey: apiKey,
-				},
+				headers: buildHeaders(apiKey, instanceToken),
 			};
 
 			const response = await axios(config);
@@ -65,15 +73,14 @@ export class WebhookService {
 		baseUrl: string,
 		apiKey: string,
 		instanceName: string,
+		instanceToken?: string,
 	): Promise<void> {
 		try {
 			const config: AxiosRequestConfig = {
 				baseURL: normalizeBaseUrl(baseUrl),
 				url: `/webhook/${instanceName}`,
 				method: 'DELETE',
-				headers: {
-					apikey: apiKey,
-				},
+				headers: buildHeaders(apiKey, instanceToken),
 			};
 
 			await axios(config);
