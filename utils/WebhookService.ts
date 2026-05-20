@@ -29,13 +29,10 @@ export class WebhookService {
 				'Content-Type': 'application/json',
 			},
 			data: {
-				webhook: {
-					enabled: true,
-					url: webhookUrl,
-					webhookByEvents: false,
-					webhookBase64: false,
-					events,
-				},
+				url: webhookUrl,
+				webhook_by_events: false,
+				webhook_base64: false,
+				events,
 			},
 		};
 
