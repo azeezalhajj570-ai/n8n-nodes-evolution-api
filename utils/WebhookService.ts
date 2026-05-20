@@ -8,6 +8,10 @@ export interface WebhookRegistration {
 	events: string[];
 }
 
+function normalizeBaseUrl(url: string): string {
+	return url.replace(/\/+$/, '');
+}
+
 export class WebhookService {
 	static async registerWebhook(
 		baseUrl: string,
@@ -17,7 +21,7 @@ export class WebhookService {
 		events: string[],
 	): Promise<void> {
 		const config: AxiosRequestConfig = {
-			baseURL: baseUrl,
+			baseURL: normalizeBaseUrl(baseUrl),
 			url: `/webhook/set/${instanceName}`,
 			method: 'POST',
 			headers: {
@@ -45,7 +49,7 @@ export class WebhookService {
 	): Promise<WebhookRegistration | null> {
 		try {
 			const config: AxiosRequestConfig = {
-				baseURL: baseUrl,
+				baseURL: normalizeBaseUrl(baseUrl),
 				url: `/webhook/find/${instanceName}`,
 				method: 'GET',
 				headers: {
@@ -67,7 +71,7 @@ export class WebhookService {
 	): Promise<void> {
 		try {
 			const config: AxiosRequestConfig = {
-				baseURL: baseUrl,
+				baseURL: normalizeBaseUrl(baseUrl),
 				url: `/webhook/${instanceName}`,
 				method: 'DELETE',
 				headers: {
