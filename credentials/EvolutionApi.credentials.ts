@@ -28,6 +28,14 @@ export class EvolutionApi implements ICredentialType {
 			},
 			description: 'Digite a ApiKey da Instancia ou Global da sua Evolution API',
 		},
+		{
+			displayName: 'Instance Name',
+			name: 'instanceName',
+			type: 'string',
+			default: '',
+			placeholder: 'MyInstance',
+			description: 'Nome da sua instância Evolution API',
+		},
 	];
 
 	authenticate: IAuthenticateGeneric = {

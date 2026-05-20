@@ -148,15 +148,6 @@ export class EvolutionApiTrigger implements INodeType {
 		],
 		properties: [
 			{
-				displayName: 'Instance Name',
-				name: 'instanceName',
-				type: 'string',
-				default: '',
-				placeholder: 'MyInstance',
-				description: 'Nome da instância Evolution API',
-				required: true,
-			},
-			{
 				displayName: 'Event',
 				name: 'event',
 				type: 'options',
@@ -182,7 +173,7 @@ export class EvolutionApiTrigger implements INodeType {
 				const credentials = await this.getCredentials('evolutionApiPlus');
 				const baseUrl = credentials['server-url'] as string;
 				const apiKey = credentials.apikey as string;
-				const instanceName = this.getNodeParameter('instanceName', '') as string;
+				const instanceName = credentials.instanceName as string;
 
 				if (!baseUrl || !apiKey || !instanceName) {
 					return false;
@@ -196,7 +187,7 @@ export class EvolutionApiTrigger implements INodeType {
 				const credentials = await this.getCredentials('evolutionApiPlus');
 				const baseUrl = credentials['server-url'] as string;
 				const apiKey = credentials.apikey as string;
-				const instanceName = this.getNodeParameter('instanceName', '') as string;
+				const instanceName = credentials.instanceName as string;
 				const event = this.getNodeParameter('event', '') as string;
 				const additionalEvents = this.getNodeParameter('additionalEvents', []) as string[];
 
@@ -216,7 +207,7 @@ export class EvolutionApiTrigger implements INodeType {
 				const credentials = await this.getCredentials('evolutionApiPlus');
 				const baseUrl = credentials['server-url'] as string;
 				const apiKey = credentials.apikey as string;
-				const instanceName = this.getNodeParameter('instanceName', '') as string;
+				const instanceName = credentials.instanceName as string;
 
 				if (!baseUrl || !apiKey || !instanceName) {
 					return false;
