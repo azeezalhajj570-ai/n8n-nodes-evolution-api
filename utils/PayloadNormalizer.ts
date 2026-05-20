@@ -15,7 +15,7 @@ function extractSender(remoteJid: string): string {
 }
 
 function extractMessageText(message: any): string {
-	if (!message) return '';
+	if (!message || Object.keys(message).length === 0) return '';
 
 	if (message.conversation) {
 		return message.conversation;
