@@ -8,12 +8,12 @@
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "OrionDesign",
-    "email": "contato@oriondesign.art.br"
+    "name": "azeezalhajj570-ai",
+    "email": ""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/oriondesign2015/n8n-nodes-evolution-api.git"
+    "url": "https://github.com/azeezalhajj570-ai/n8n-nodes-evolution-api.git"
   },
   "engines": {
     "node": ">=18.10",
@@ -39,7 +39,8 @@
       "dist/credentials/EvolutionApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/EvolutionApi/EvolutionApi.node.js"
+      "dist/nodes/EvolutionApi/EvolutionApi.node.js",
+      "dist/nodes/EvolutionApiTrigger/EvolutionApiTrigger.node.js"
     ]
   },
   "devDependencies": {
