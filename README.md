@@ -1,268 +1,212 @@
 ![image](https://github.com/user-attachments/assets/813b7b34-377c-42e8-9f1a-12e27e682c7f)
 
 <p align="center"><br>
-Este Community Nodes é uma solução 100% gratuita, criada com o intuito de simplificar e auxiliar toda a comunidade a integrar e utilizar ao máximo os principais recursos oferecidos pela <b>Evolution API v2.2+</b> em seus projetos no N8N. <b>Desenvolvido por OrionDesign.</b>
+Community nodes for integrating <b>Evolution API v2.2+</b> with n8n workflows.  
+Includes action nodes and an event-driven <b>Trigger node</b> for automatic workflow execution on incoming messages.  
+Originally developed by <b>OrionDesign</b>, extended with trigger support.
 </p>
 <br>
-	
+
 <div align="center">
-  <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.npmjs.org%2Fdownloads%2Fpoint%2Flast-year%2Fn8n-nodes-evolution-api&query=downloads&style=for-the-badge&label=Total%20de%20Downloads&labelColor=%230d1117&color=%23359514&cacheSeconds=30&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fn8n-nodes-evolution-api" alt="Dynamic JSON Badge">
+  <img src="https://img.shields.io/npm/v/n8n-nodes-evolution-api-plus?style=for-the-badge&label=Version&labelColor=%230d1117&color=%23359514" alt="Version">
+  <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.npmjs.org%2Fdownloads%2Fpoint%2Flast-year%2Fn8n-nodes-evolution-api&query=downloads&style=for-the-badge&label=Total%20Downloads&labelColor=%230d1117&color=%23359514" alt="Downloads">
 </div>
 <br>
-</p>
-<p align="center">
-  <a href="https://oriondesign.art.br/whatsapp1"><img src="https://github.com/user-attachments/assets/5a469114-2054-4f01-85b2-51a282518658" alt=”SetupOrion” ></a>     
-  <a href="https://oriondesign.art.br/whatsapp2"><img src="https://github.com/user-attachments/assets/3e3580a9-ae8e-4209-84fc-cfc1c03a8f12" alt=”SetupOrion” ></a>     
-  <a href="https://oriondesign.art.br/whatsapp3"><img src="https://github.com/user-attachments/assets/91aa7733-c09c-474f-9483-54cb678213d2" alt=”SetupOrion” ></a>
-</p>
-
 
 <h1></h1>
 
-<h3>⚙️ Requisitos</h3>
+<h3>⚙️ Requirements</h3>
 
-Para utilizar o nosso **Community Node**, é necessário atender aos seguintes requisitos:  
-- **N8N** na versão **1.54.4** ou superior  
-- **Evolution API** na versão **2.2.0** ou superior  
+- **n8n** v1.54.4 or higher
+- **Evolution API** v2.2.0 or higher
 
 <h1></h1>
 
-<h3>📌 Recursos Disponíveis</h3>
+<h3>🚀 Features</h3>
 
-<h3>Instância</h3>
-🖥️ Este recurso oferece acesso completo às principais funcionalidades relacionadas às instâncias da Evolution API. Ele permite realizar operações essenciais, como criar novas instâncias, conectar-se a elas, obter informações detalhadas, personalizar comportamentos, monitorar presença, reiniciar e até mesmo excluir instâncias de forma prática e eficiente.
+<h4>🔔 Evolution API Trigger <i>(New)</i></h4>
+Event-driven trigger node that starts workflows automatically when messages arrive via Evolution API.
+
+- **New Message** — triggers on `messages.upsert`
+- **20+ events** — subscribe to any Evolution API event (messages, groups, contacts, presence, etc.)
+- **Automatic webhook registration** — registers on activation, removes on deactivation
+- **Payload normalization** — raw webhook data is normalized into `{sender, message, messageType, timestamp}`
+- **Multiple event support** — subscribe to multiple events simultaneously
+
+<h1></h1>
+
+<h3>📌 Available Resources</h3>
+
+<h4>Instance</h4>
+🖥️ Full management of Evolution API instances: create, connect, configure, monitor presence, restart, and delete instances.
 <br>
 <details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Criar Instancia</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Gerar Qr-Code</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Instancia</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Definir Comportamento</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Definir Presença</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Definir Proxy</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Proxy</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Desconectar WhatsApp</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Deletar Instancia</b></summary>
-	</details>
+  <summary><b>Operations</b></summary>
+  <details><summary>✅ <b> Create Instance</b></summary></details>
+  <details><summary>✅ <b> Generate QR Code</b></summary></details>
+  <details><summary>✅ <b> Fetch Instance</b></summary></details>
+  <details><summary>✅ <b> Set Behavior</b></summary></details>
+  <details><summary>✅ <b> Set Presence</b></summary></details>
+  <details><summary>✅ <b> Set Proxy</b></summary></details>
+  <details><summary>✅ <b> Find Proxy</b></summary></details>
+  <details><summary>✅ <b> Disconnect WhatsApp</b></summary></details>
+  <details><summary>✅ <b> Delete Instance</b></summary></details>
 </details>
 
-<h3> Mensagem</h3>
-✉️ Este recurso concentra todas as funcionalidades relacionadas ao envio e gerenciamento de mensagens através da Evolution API. Com ele, você pode enviar diversos tipos de conteúdo como textos, imagens, vídeos, áudios, documentos, contatos, listas interativas, botões e até mesmo mensagens PIX. Cada tipo de mensagem possui opções avançadas como delay, mentions, replies e formatações especiais. O recurso foi desenvolvido para proporcionar uma experiência completa de comunicação, permitindo explorar ao máximo os recursos nativos do WhatsApp de forma simples e eficiente.
+<h4>Message</h4>
+✉️ Send and manage messages: text, images, videos, audio, documents, contacts, interactive lists, buttons, PIX, and status messages.
 <br>
 <details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Enviar Texto</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Imagem</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Video</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Audio</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Documento</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Enquete</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Contato</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Lista</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Botão</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Pix</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Status</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Reagir a Mensagem</b></summary>
-	</details>
+  <summary><b>Operations</b></summary>
+  <details><summary>✅ <b> Send Text</b></summary></details>
+  <details><summary>✅ <b> Send Image</b></summary></details>
+  <details><summary>✅ <b> Send Video</b></summary></details>
+  <details><summary>✅ <b> Send Audio</b></summary></details>
+  <details><summary>✅ <b> Send Document</b></summary></details>
+  <details><summary>✅ <b> Send Poll</b></summary></details>
+  <details><summary>✅ <b> Send Contact</b></summary></details>
+  <details><summary>✅ <b> Send List</b></summary></details>
+  <details><summary>✅ <b> Send Button</b></summary></details>
+  <details><summary>✅ <b> Send PIX</b></summary></details>
+  <details><summary>✅ <b> Send Status</b></summary></details>
+  <details><summary>✅ <b> React to Message</b></summary></details>
 </details>
 
-<h3>Grupo</h3>
-👥 Com este recurso, você conta com um conjunto completo de funcionalidades para gerenciamento de grupos no WhatsApp por meio da Evolution API. Ele abrange desde a criação e administração de grupos até o gerenciamento de participantes, configuração de permissões, links de convite e mensagens temporárias. Tudo foi projetado para oferecer controle eficiente e simplificado na administração de grupos.
+<h4>Group</h4>
+👥 Full group management: create, update settings, manage participants, invite links, and ephemeral messages.
 <br>
 <details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Criar Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Imagem do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Nome do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Descrição do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Configurações do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Atualizar Membros</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Link de convite do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Revogar Link de convite do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Link de Convite do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Encontrar Participantes</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Mensagens Temporarias</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Sair do Grupo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Entrar no Grupo</b></summary>
-	</details>
+  <summary><b>Operations</b></summary>
+  <details><summary>✅ <b> Create Group</b></summary></details>
+  <details><summary>✅ <b> Update Group Picture</b></summary></details>
+  <details><summary>✅ <b> Update Group Name</b></summary></details>
+  <details><summary>✅ <b> Update Group Description</b></summary></details>
+  <details><summary>✅ <b> Update Group Settings</b></summary></details>
+  <details><summary>✅ <b> Update Members</b></summary></details>
+  <details><summary>✅ <b> Fetch Invite Link</b></summary></details>
+  <details><summary>✅ <b> Revoke Invite Link</b></summary></details>
+  <details><summary>✅ <b> Send Invite Link</b></summary></details>
+  <details><summary>✅ <b> Find Participants</b></summary></details>
+  <details><summary>✅ <b> Ephemeral Messages</b></summary></details>
+  <details><summary>✅ <b> Leave Group</b></summary></details>
+  <details><summary>✅ <b> Join Group</b></summary></details>
 </details>
 
-<h3>Chat</h3>
-💬 Este recurso disponibiliza um conjunto abrangente de ferramentas para o gerenciamento de conversas e interações utilizando a Evolution API. Com ele, é possível verificar números, enviar e gerenciar mensagens, manipular arquivos de mídia, controlar status de leitura, administrar contatos e monitorar presença. Todas as operações são desenvolvidas para proporcionar um controle completo e eficiente das comunicações, facilitando a gestão tanto de conversas individuais quanto em grupo.
+<h4>Chat</h4>
+💬 Comprehensive chat management: verify numbers, manage messages, handle media, control read status, contacts, and presence.
 <br>
 <details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Verificar Numero</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Ler Mensagem</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Gerenciar Arquivoo</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Marcar como Não lido</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Deletar Mensagem</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Foto de Perfil</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Obter Midia em Base64</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Editar Mensagem</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Enviar Presença</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Bloquear Contato</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Buscar Contatos</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Procurar Mensagens</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Procurar Status</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Procurar Chats</b></summary>
-	</details>
+  <summary><b>Operations</b></summary>
+  <details><summary>✅ <b> Check Number</b></summary></details>
+  <details><summary>✅ <b> Read Messages</b></summary></details>
+  <details><summary>✅ <b> Manage Archive</b></summary></details>
+  <details><summary>✅ <b> Mark as Unread</b></summary></details>
+  <details><summary>✅ <b> Delete Message</b></summary></details>
+  <details><summary>✅ <b> Fetch Profile Picture</b></summary></details>
+  <details><summary>✅ <b> Get Media as Base64</b></summary></details>
+  <details><summary>✅ <b> Edit Message</b></summary></details>
+  <details><summary>✅ <b> Send Presence</b></summary></details>
+  <details><summary>✅ <b> Block Contact</b></summary></details>
+  <details><summary>✅ <b> Find Contacts</b></summary></details>
+  <details><summary>✅ <b> Search Messages</b></summary></details>
+  <details><summary>✅ <b> Search Status</b></summary></details>
+  <details><summary>✅ <b> Search Chats</b></summary></details>
 </details>
 
-<h3>Evento</h3>
-⚡ Este recurso oferece mecanismos avançados para integração e monitoramento em tempo real das atividades da Evolution API. Ele permite configurar e gerenciar Webhooks e RabbitMQ, possibilitando o acompanhamento de eventos como mensagens recebidas, alterações em grupos, status de conexão e muito mais. Essas funcionalidades foram projetadas para garantir uma comunicação ágil e automatizada entre sua aplicação e a API, promovendo respostas imediatas a diferentes eventos do WhatsApp.
+<h4>Event</h4>
+⚡ Real-time event monitoring via Webhooks and RabbitMQ integration.
 <br>
 <details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Webhook</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> RabbitMQ</b></summary>
-	</details>
+  <summary><b>Operations</b></summary>
+  <details><summary>✅ <b> Webhook</b></summary></details>
+  <details><summary>✅ <b> RabbitMQ</b></summary></details>
 </details>
 
-<h3>Integração</h3>
-🔗 Este recurso disponibiliza uma ampla gama de conectores para integrar a Evolution API a diversas plataformas e serviços externos. Entre as possibilidades estão conexões com Chatwoot para atendimento ao cliente, Evolution Bot para automações, Typebot para fluxos conversacionais, além de integrações com Flowise e Dify para soluções de inteligência artificial. Essas integrações ampliam as capacidades da API, permitindo criar soluções robustas e automatizadas para diferentes cenários de negócios.
+<h4>Integration</h4>
+🔗 Connect Evolution API with external platforms: Chatwoot, Evolution Bot, Typebot, Flowise, and Dify.
 <br>
 <details>
-  <summary><b>Lista de operações</b></summary>
-	<details>
-  	<summary>   ✅ <b> Chatwoot</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Evolution Bot</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Typebot</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Dify</b></summary>
-	</details>
-	<details>
-  	<summary>   ✅ <b> Floise</b></summary>
-	</details>
+  <summary><b>Operations</b></summary>
+  <details><summary>✅ <b> Chatwoot</b></summary></details>
+  <details><summary>✅ <b> Evolution Bot</b></summary></details>
+  <details><summary>✅ <b> Typebot</b></summary></details>
+  <details><summary>✅ <b> Dify</b></summary></details>
+  <details><summary>✅ <b> Flowise</b></summary></details>
 </details>
 
 <h1></h1>
 
-<h3>🤝 Contribuição</h3>
+<h3>🔧 Installation</h3>
 
-Contribua para o crescimento deste projeto! Você pode ajudar de diversas formas:  
-- **Pull Requests**: Envie melhorias, correções ou novas funcionalidades.  
-- **Issues**: Relate problemas ou sugira novas ideias.  
-- **Sugestões**: Compartilhe suas opiniões e feedbacks.  
-- **Documentação**: Ajude a melhorar ou expandir a documentação existente.  
+1. In n8n, go to **Settings → Community Nodes**
+2. Click **Install**
+3. Enter `n8n-nodes-evolution-api-plus`
+4. Click **Install**
+
+Or install via npm:
+
+```bash
+npm install n8n-nodes-evolution-api-plus
+```
 
 <h1></h1>
 
-<h3>📌 Principais contribuidores</h3>
+<h3>🔑 Credentials</h3>
+
+To use the nodes, configure the following credentials in n8n:
+
+| Field | Description |
+|-------|-------------|
+| **Server Url** | Full URL of your Evolution API instance (e.g. `https://api.example.com`) |
+| **ApiKey** | Your instance or global API key |
+| **Instance Name** | The name of your Evolution API instance |
+
+<h1></h1>
+
+<h3>🔄 Trigger Node Lifecycle</h3>
+
+The **Evolution API Trigger** node follows n8n's webhook lifecycle:
+
+1. **Activation** — Automatically registers a webhook with Evolution API via `POST /webhook/set/{instance}` using n8n's generated webhook URL
+2. **Event Reception** — Incoming messages trigger the workflow; payload is normalized before execution
+3. **Deactivation** — Automatically removes the webhook via `DELETE /webhook/{instance}`
+
+<h1></h1>
+
+<h3>📦 Normalized Payload</h3>
+
+Raw Evolution API webhook data is normalized into a clean output:
+
+```json
+{
+  "event": "messages.upsert",
+  "sender": "5511999999999",
+  "senderName": "John Doe",
+  "message": "Hello, how are you?",
+  "messageType": "text",
+  "timestamp": "2025-05-20T12:00:00.000Z",
+  "instance": "MyInstance"
+}
+```
+
+<h1></h1>
+
+<h3>🤝 Contributing</h3>
+
+Contributions are welcome! You can help by:
+- **Pull Requests** — Submit improvements, fixes, or new features
+- **Issues** — Report bugs or suggest ideas
+- **Documentation** — Help improve or expand the docs
+
+<h1></h1>
+
+<h3>📌 Contributors</h3>
 <a align="center" href="https://github.com/oriondesign2015/n8n-nodes-evolution-api/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=oriondesign2015/n8n-nodes-evolution-api" />
 </a>
 
 <h1></h1>
-<a href="https://star-history.com/#oriondesign2015/SetupOrion&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=oriondesign2015/SetupOrion&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=oriondesign2015/SetupOrion&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=oriondesign2015/SetupOrion&type=Date" />
- </picture>
-</a>
 
-<h1></h1>
-<p align="center">
-Desenvolvido com ❤️ por OrionDesign
-</p>
+<h3>📄 License</h3>
+
+MIT
