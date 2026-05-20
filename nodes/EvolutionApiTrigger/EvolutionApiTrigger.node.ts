@@ -121,7 +121,7 @@ const eventOptions: INodePropertyOptions[] = [
 export class EvolutionApiTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Evolution API Trigger',
-		name: 'evolutionApiTrigger',
+		name: 'evolutionApiTriggerPlus',
 		icon: 'file:evolutionapi.svg',
 		group: ['trigger'],
 		version: 1,
@@ -134,7 +134,7 @@ export class EvolutionApiTrigger implements INodeType {
 		outputs: [NodeConnectionType.Main],
 		credentials: [
 			{
-				name: 'evolutionApi',
+				name: 'evolutionApiPlus',
 				required: true,
 			},
 		],
@@ -179,7 +179,7 @@ export class EvolutionApiTrigger implements INodeType {
 	webhookMethods = {
 		default: {
 			async checkExists(this: IHookFunctions): Promise<boolean> {
-				const credentials = await this.getCredentials('evolutionApi');
+				const credentials = await this.getCredentials('evolutionApiPlus');
 				const baseUrl = credentials['server-url'] as string;
 				const apiKey = credentials.apikey as string;
 				const instanceName = this.getNodeParameter('instanceName', '') as string;
@@ -193,7 +193,7 @@ export class EvolutionApiTrigger implements INodeType {
 			},
 
 			async create(this: IHookFunctions): Promise<boolean> {
-				const credentials = await this.getCredentials('evolutionApi');
+				const credentials = await this.getCredentials('evolutionApiPlus');
 				const baseUrl = credentials['server-url'] as string;
 				const apiKey = credentials.apikey as string;
 				const instanceName = this.getNodeParameter('instanceName', '') as string;
@@ -213,7 +213,7 @@ export class EvolutionApiTrigger implements INodeType {
 			},
 
 			async delete(this: IHookFunctions): Promise<boolean> {
-				const credentials = await this.getCredentials('evolutionApi');
+				const credentials = await this.getCredentials('evolutionApiPlus');
 				const baseUrl = credentials['server-url'] as string;
 				const apiKey = credentials.apikey as string;
 				const instanceName = this.getNodeParameter('instanceName', '') as string;

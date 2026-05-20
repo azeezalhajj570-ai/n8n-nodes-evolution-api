@@ -10,8 +10,8 @@ import { resourceOperationsFunctions } from './execute';
 
 export class EvolutionApi implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Evolution API',
-		name: 'evolutionApi',
+		displayName: 'Evolution API Plus',
+		name: 'evolutionApiPlus',
 		icon: 'file:evolutionapi.svg',
 		group: ['transform'],
 		version: 1,
@@ -24,12 +24,12 @@ export class EvolutionApi implements INodeType {
 		inputs: ['main'],
 		// @ts-ignore
 		outputs: ['main'],
-		credentials: [
-			{
-				name: 'evolutionApi',
-				required: true,
-			},
-		],
+	credentials: [
+		{
+			name: 'evolutionApiPlus',
+			required: true,
+		},
+	],
 		requestDefaults: {
 			baseURL: 'https://doc.evolution-api.com/api-reference',
 			url: '',

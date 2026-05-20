@@ -1,7 +1,7 @@
 import { IExecuteFunctions, IRequestOptions } from 'n8n-workflow';
 
 export async function evolutionRequest(ef: IExecuteFunctions, options: IRequestOptions) {
-	const credentials = await ef.getCredentials('evolutionApi');
+	const credentials = await ef.getCredentials('evolutionApiPlus');
 	const serverUrl = credentials['server-url'];
 	const apiKey = credentials.apikey;
 
