@@ -5,6 +5,7 @@ import {
 	INodeTypeDescription,
 	IWebhookResponseData,
 	INodePropertyOptions,
+	NodeConnectionType,
 } from 'n8n-workflow';
 import { WebhookService } from '../../utils/WebhookService';
 import { normalizePayload } from '../../utils/PayloadNormalizer';
@@ -130,7 +131,7 @@ export class EvolutionApiTrigger implements INodeType {
 			name: 'Evolution API Trigger',
 		},
 		inputs: [],
-		outputs: ['main'],
+		outputs: [NodeConnectionType.Main],
 		credentials: [
 			{
 				name: 'evolutionApi',
